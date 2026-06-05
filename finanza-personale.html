@@ -22,14 +22,12 @@
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; max-width: 480px; margin: 0 auto; padding-bottom: 90px; }
 
-  /* HEADER */
   .header { background: linear-gradient(160deg, #1a1500 0%, #0d0f12 60%); padding: 22px 24px 18px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
   .header-top { display: flex; justify-content: space-between; align-items: center; }
   .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); font-weight: 900; letter-spacing: -0.5px; }
   .logo span { color: var(--text); font-weight: 400; }
-  .date-pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+  .date-pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 11px; color: var(--muted); }
 
-  /* BALANCE */
   .balance-section { padding: 28px 20px 0; }
   .balance-card { background: linear-gradient(135deg, #1c1600 0%, #1a1c24 100%); border: 1px solid var(--gold); border-radius: 24px; padding: 28px 24px; position: relative; overflow: hidden; }
   .balance-card::before { content: '◈'; position: absolute; right: -10px; top: -20px; font-size: 120px; color: rgba(201,168,76,0.05); line-height: 1; }
@@ -42,7 +40,6 @@
   .income-val { color: var(--green); }
   .expense-val { color: var(--red); }
 
-  /* DEPOSIT */
   .deposit-section { padding: 20px; }
   .section-title { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
   .deposit-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
@@ -57,7 +54,6 @@
   .deposit-monthly-label { font-size: 12px; color: var(--muted); }
   .deposit-monthly-val { font-size: 15px; font-weight: 600; color: var(--green); }
 
-  /* FORM */
   .quick-section { padding: 0 20px 20px; }
   .quick-tabs { display: flex; background: var(--surface); border-radius: 12px; padding: 4px; margin-bottom: 14px; }
   .quick-tab { flex: 1; padding: 10px; border: none; border-radius: 9px; background: none; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
@@ -77,7 +73,6 @@
   .add-btn.gold { background: var(--gold); color: #1a1200; }
   .add-btn:active { transform: scale(0.97); }
 
-  /* TRANSACTIONS */
   .tx-section { padding: 0 20px 20px; }
   .tx-list { display: flex; flex-direction: column; gap: 8px; }
   .tx-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; animation: slideIn 0.3s ease; }
@@ -94,6 +89,27 @@
   .tx-amount.expense { color: var(--red); }
   .tx-date { font-size: 10px; color: var(--muted); margin-top: 2px; }
   .tx-del { background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer; padding: 4px; }
+
+  /* CALENDARIO */
+  .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .cal-nav { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; color: var(--text); font-size: 18px; cursor: pointer; border: none; }
+  .cal-month { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 16px; }
+  .cal-day-label { text-align: center; font-size: 10px; color: var(--muted); padding: 4px 0; text-transform: uppercase; }
+  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; position: relative; transition: all 0.2s; }
+  .cal-day:hover { background: var(--surface2); }
+  .cal-day.today { background: rgba(201,168,76,0.15); color: var(--gold); font-weight: 700; }
+  .cal-day.selected { background: var(--gold); color: #1a1200; font-weight: 700; }
+  .cal-day.has-tx::after { content: ''; position: absolute; bottom: 3px; width: 4px; height: 4px; border-radius: 50%; background: var(--green); }
+  .cal-day.has-expense::after { background: var(--red); }
+  .cal-day.has-both::after { background: var(--gold); }
+  .cal-day.empty { cursor: default; }
+  .cal-day-detail { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; }
+  .cal-day-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold); margin-bottom: 12px; }
+  .cal-summary { display: flex; gap: 10px; margin-bottom: 12px; }
+  .cal-sum-item { flex: 1; background: var(--surface2); border-radius: 10px; padding: 10px; text-align: center; }
+  .cal-sum-val { font-size: 16px; font-weight: 700; }
+  .cal-sum-label { font-size: 10px; color: var(--muted); margin-top: 2px; }
 
   /* AI */
   .ai-card { background: linear-gradient(135deg, #0f1520 0%, #161c26 100%); border: 1px solid rgba(100,140,255,0.2); border-radius: var(--radius); overflow: hidden; }
@@ -113,7 +129,6 @@
   .ai-quick-btns { display: flex; gap: 6px; padding: 0 16px 14px; flex-wrap: wrap; }
   .ai-quick { background: rgba(255,255,255,0.05); border: 1px solid rgba(100,140,255,0.2); border-radius: 20px; padding: 6px 12px; font-size: 11px; color: #8899cc; cursor: pointer; white-space: nowrap; }
 
-  /* STATS */
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
   .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
   .stat-icon { font-size: 22px; margin-bottom: 8px; }
@@ -130,7 +145,9 @@
   .bar-label { flex: 1; font-size: 9px; color: var(--muted); text-align: center; }
   .tip-badge { display: inline-block; background: rgba(201,168,76,0.1); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 10px; color: var(--gold); margin-left: 8px; }
 
-  /* ACCOUNT */
+  .goal-form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+  .goal-form h3 { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold); margin-bottom: 14px; }
+
   .account-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 14px; }
   .account-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #8b5e00); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 12px; }
   .account-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
@@ -139,16 +156,10 @@
   .backup-btn { width: 100%; padding: 15px; border: none; border-radius: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; transition: all 0.2s; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .backup-btn.export { background: rgba(201,168,76,0.12); border: 1px solid var(--border); color: var(--gold); }
   .backup-btn.import { background: rgba(76,175,125,0.12); border: 1px solid rgba(76,175,125,0.3); color: var(--green); }
-  .backup-btn:active { opacity: 0.7; }
   .danger-btn { width: 100%; padding: 14px; border: 1px solid rgba(224,90,90,0.3); border-radius: 12px; background: rgba(224,90,90,0.08); color: var(--red); font-family: 'DM Sans', sans-serif; font-size: 14px; cursor: pointer; margin-top: 6px; }
 
-  /* GOAL */
-  .goal-form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
-  .goal-form h3 { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold); margin-bottom: 14px; }
-
-  /* NAV */
   .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: rgba(13,15,18,0.97); backdrop-filter: blur(20px); border-top: 1px solid var(--border); display: flex; padding: 10px 0 20px; z-index: 100; }
-  .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; padding: 6px; border: none; background: none; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 10px; transition: color 0.2s; }
+  .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; padding: 6px; border: none; background: none; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 9px; transition: color 0.2s; }
   .nav-item.active { color: var(--gold); }
   .nav-icon { font-size: 20px; }
 
@@ -160,7 +171,6 @@
   .page-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
   .page-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-  /* TOAST */
   .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 10px 20px; font-size: 13px; color: var(--text); z-index: 200; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
   .toast.show { opacity: 1; }
 </style>
@@ -169,7 +179,6 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-top">
     <div class="logo">Il Mio<span> Deposito</span></div>
@@ -243,13 +252,13 @@
       </div>
       <div class="input-group">
         <div class="input-label">Descrizione</div>
-        <input type="text" class="input-field" id="txDesc" placeholder="es. Stipendio, Spesa…">
+        <input type="text" class="input-field" id="txDesc" placeholder="es. Stipendio, Affitto…">
       </div>
       <div class="form-row">
         <div class="input-group">
           <div class="input-label">Categoria</div>
           <select class="input-field" id="txCat">
-            <option>💼 Stipendio</option><option>💻 Freelance</option><option>🎁 Regalo</option><option>📦 Altro</option>
+            <option>💼 Stipendio</option>
           </select>
         </div>
         <div class="input-group">
@@ -258,6 +267,27 @@
         </div>
       </div>
       <button class="add-btn income" id="addBtn" onclick="addTransaction()">+ Aggiungi Entrata</button>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDARIO -->
+<div class="page" id="page-calendar">
+  <div class="page-header">
+    <div class="page-title">Calendario</div>
+    <div class="page-sub">Spese giorno per giorno</div>
+  </div>
+  <div style="padding: 0 20px;">
+    <div class="cal-header">
+      <button class="cal-nav" onclick="calPrev()">‹</button>
+      <div class="cal-month" id="calMonth"></div>
+      <button class="cal-nav" onclick="calNext()">›</button>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-day-detail" id="calDetail" style="display:none;">
+      <div class="cal-day-title" id="calDetailTitle"></div>
+      <div class="cal-summary" id="calDetailSummary"></div>
+      <div class="tx-list" id="calDetailList"></div>
     </div>
   </div>
 </div>
@@ -337,8 +367,8 @@
       <div class="ai-quick-btns">
         <div class="ai-quick" onclick="quickQuestion('Vale la pena comprare questo articolo?')">🛒 Vale la pena?</div>
         <div class="ai-quick" onclick="quickQuestion('Come posso risparmiare di più questo mese?')">💡 Risparmia di più</div>
-        <div class="ai-quick" onclick="quickQuestion('Analizza le mie spese')">📊 Analizza spese</div>
-        <div class="ai-quick" onclick="quickQuestion('Consigli per il mio deposito')">🏦 Deposito</div>
+        <div class="ai-quick" onclick="quickQuestion('Analizza le mie spese e dimmi dove spreco di più')">📊 Analizza spese</div>
+        <div class="ai-quick" onclick="quickQuestion('Consigli per raggiungere prima il mio obiettivo deposito')">🏦 Deposito</div>
       </div>
       <div class="ai-input-row">
         <input type="text" class="ai-input" id="aiInput" placeholder="Chiedi un consiglio…" onkeydown="if(event.key==='Enter')sendAI()">
@@ -359,21 +389,19 @@
       <div class="account-avatar">👤</div>
       <div style="text-align:center;margin-bottom:20px;">
         <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);">Il Mio Deposito</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px;" id="accInfo">—</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;">Dati salvati sul dispositivo</div>
       </div>
       <div class="account-row"><span>📊 Movimenti totali</span><span class="account-row-val" id="accTxCount">0</span></div>
       <div class="account-row"><span>💰 Saldo attuale</span><span class="account-row-val income-val" id="accBalance">€ 0</span></div>
       <div class="account-row"><span>🎯 Obiettivo</span><span class="account-row-val" id="accGoal">—</span></div>
     </div>
-
     <div class="section-title">☁️ Backup Dati</div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px;">
-      <p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.6;">Esporta i tuoi dati per tenerli al sicuro o per trasferirli su un nuovo telefono. Importa per ripristinare tutto.</p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.6;">Esporta per fare un backup o trasferire su un nuovo telefono. Importa per ripristinare tutto.</p>
       <button class="backup-btn export" onclick="exportData()">📤 Esporta dati (backup)</button>
       <button class="backup-btn import" onclick="document.getElementById('importFile').click()">📥 Importa dati</button>
       <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
     </div>
-
     <div class="section-title">⚠️ Zona Pericolo</div>
     <button class="danger-btn" onclick="resetAll()">🗑️ Cancella tutti i dati</button>
   </div>
@@ -383,6 +411,7 @@
 <div class="bottom-nav">
   <button class="nav-item active" id="nav-home" onclick="showPage('home')"><span class="nav-icon">🏠</span><span>Home</span></button>
   <button class="nav-item" id="nav-add" onclick="showPage('add')"><span class="nav-icon">➕</span><span>Aggiungi</span></button>
+  <button class="nav-item" id="nav-calendar" onclick="showPage('calendar')"><span class="nav-icon">📅</span><span>Calendario</span></button>
   <button class="nav-item" id="nav-stats" onclick="showPage('stats')"><span class="nav-icon">📊</span><span>Statistiche</span></button>
   <button class="nav-item" id="nav-goals" onclick="showPage('goals')"><span class="nav-icon">🎯</span><span>Obiettivo</span></button>
   <button class="nav-item" id="nav-ai" onclick="showPage('ai')"><span class="nav-icon">🧠</span><span>Marco</span></button>
@@ -390,22 +419,67 @@
 </div>
 
 <script>
-// ─── STATE ───────────────────────────────────────────────
-const CAT_ICONS = {'Stipendio':'💼','Freelance':'💻','Regalo':'🎁','Affitto':'🏠','Cibo':'🛒','Trasporti':'🚗','Svago':'🎬','Salute':'💊','Abbonamenti':'📱','Deposito':'🏦','Altro':'📦'};
+const WORKER_URL = 'https://hidden-hat-1069.scabellonicolo.workers.dev';
+
+const CAT_INCOME = [
+  {label:'💼 Stipendio', val:'Stipendio'},
+  {label:'💻 Freelance', val:'Freelance'},
+  {label:'🎁 Regalo', val:'Regalo'},
+  {label:'📦 Altro', val:'Altro'}
+];
+
+const CAT_EXPENSE = [
+  {label:'🏠 Affitto', val:'Affitto'},
+  {label:'💡 Luce', val:'Luce'},
+  {label:'🔥 Gas', val:'Gas'},
+  {label:'💧 Acqua', val:'Acqua'},
+  {label:'🛒 Spesa', val:'Spesa'},
+  {label:'🔧 Manutenzione', val:'Manutenzione'},
+  {label:'💅 Bellezza', val:'Bellezza'},
+  {label:'✈️ Vacanze', val:'Vacanze'},
+  {label:'🌐 Internet/Telefono', val:'Internet/Telefono'},
+  {label:'☂️ Assicurazione', val:'Assicurazione'},
+  {label:'🚌 Mezzi Pubblici', val:'Mezzi Pubblici'},
+  {label:'🎬 Divertimento', val:'Divertimento'},
+  {label:'🐾 Animali domestici', val:'Animali domestici'},
+  {label:'🛋️ Mobili', val:'Mobili'},
+  {label:'🎁 Regali', val:'Regali'},
+  {label:'📋 Tasse', val:'Tasse'},
+  {label:'⛽ Benzina', val:'Benzina'},
+  {label:'💪 Palestra', val:'Palestra'},
+  {label:'🍕 Ristoranti', val:'Ristoranti'},
+  {label:'🥂 Aperitivo', val:'Aperitivo'},
+  {label:'💊 Farmacia', val:'Farmacia'},
+  {label:'🛣️ Autostrada', val:'Autostrada'},
+  {label:'🚗 Spese Auto', val:'Spese Auto'},
+  {label:'📺 Netflix/Amazon', val:'Netflix/Amazon'},
+  {label:'🏡 Casa', val:'Casa'},
+  {label:'🧠 Psicologo', val:'Psicologo'},
+  {label:'📚 Formazione', val:'Formazione'},
+  {label:'📄 Multe', val:'Multe'},
+  {label:'👕 Abbigliamento', val:'Abbigliamento'},
+  {label:'🏦 Deposito', val:'Deposito'},
+  {label:'📦 Altro', val:'Altro'}
+];
+
+const CAT_ICONS = {};
+[...CAT_INCOME, ...CAT_EXPENSE].forEach(c => {
+  CAT_ICONS[c.val] = c.label.split(' ')[0];
+});
+
 let state = { transactions: [], goal: { name: 'Il mio obiettivo', target: 0, months: 12, current: 0 } };
 let currentTab = 'income';
+let calDate = new Date();
+let selectedCalDay = null;
 
 function loadState() {
-  try { const s = localStorage.getItem('deposito_v2'); if (s) state = JSON.parse(s); } catch {}
+  try { const s = localStorage.getItem('deposito_v3'); if (s) state = JSON.parse(s); } catch {}
   if (!state.transactions) state.transactions = [];
   if (!state.goal) state.goal = { name: 'Il mio obiettivo', target: 0, months: 12, current: 0 };
 }
 
-function saveState() {
-  localStorage.setItem('deposito_v2', JSON.stringify(state));
-}
+function saveState() { localStorage.setItem('deposito_v3', JSON.stringify(state)); }
 
-// ─── INIT ─────────────────────────────────────────────────
 function init() {
   loadState();
   document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long' });
@@ -414,10 +488,10 @@ function init() {
   document.getElementById('goalTarget').value = state.goal.target || '';
   document.getElementById('goalMonths').value = state.goal.months || '';
   document.getElementById('goalCurrent').value = state.goal.current || '';
+  setTab('income');
   render();
 }
 
-// ─── TOAST ────────────────────────────────────────────────
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -425,7 +499,6 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// ─── NAV ──────────────────────────────────────────────────
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -434,9 +507,9 @@ function showPage(name) {
   if (nav) nav.classList.add('active');
   if (name === 'stats') renderStats();
   if (name === 'account') renderAccount();
+  if (name === 'calendar') renderCalendar();
 }
 
-// ─── TAB ──────────────────────────────────────────────────
 function setTab(tab) {
   currentTab = tab;
   const catEl = document.getElementById('txCat');
@@ -445,21 +518,20 @@ function setTab(tab) {
     document.getElementById('tabExpense').className = 'quick-tab';
     document.getElementById('addBtn').className = 'add-btn income';
     document.getElementById('addBtn').textContent = '+ Aggiungi Entrata';
-    catEl.innerHTML = '<option>💼 Stipendio</option><option>💻 Freelance</option><option>🎁 Regalo</option><option>📦 Altro</option>';
+    catEl.innerHTML = CAT_INCOME.map(c => `<option value="${c.val}">${c.label}</option>`).join('');
   } else {
     document.getElementById('tabExpense').className = 'quick-tab active-expense';
     document.getElementById('tabIncome').className = 'quick-tab';
     document.getElementById('addBtn').className = 'add-btn expense';
     document.getElementById('addBtn').textContent = '+ Aggiungi Uscita';
-    catEl.innerHTML = '<option>🏠 Affitto</option><option>🛒 Cibo</option><option>🚗 Trasporti</option><option>🎬 Svago</option><option>💊 Salute</option><option>📱 Abbonamenti</option><option>🏦 Deposito</option><option>📦 Altro</option>';
+    catEl.innerHTML = CAT_EXPENSE.map(c => `<option value="${c.val}">${c.label}</option>`).join('');
   }
 }
 
-// ─── TRANSACTION ──────────────────────────────────────────
 function addTransaction() {
   const amount = parseFloat(document.getElementById('txAmount').value);
   const desc = document.getElementById('txDesc').value.trim();
-  const cat = document.getElementById('txCat').value.replace(/[^\w\s]/gu, '').trim();
+  const cat = document.getElementById('txCat').value;
   const date = document.getElementById('txDate').value;
   if (!amount || amount <= 0) { showToast('⚠️ Inserisci un importo valido'); return; }
   state.transactions.unshift({ id: Date.now(), type: currentTab, amount, desc: desc || cat, cat, date });
@@ -476,7 +548,6 @@ function deleteTransaction(id) {
   showToast('🗑️ Movimento eliminato');
 }
 
-// ─── GOAL ─────────────────────────────────────────────────
 function saveGoal() {
   state.goal.name = document.getElementById('goalName').value || 'Il mio obiettivo';
   state.goal.target = parseFloat(document.getElementById('goalTarget').value) || 0;
@@ -495,22 +566,18 @@ function saveGoal() {
   showToast('✅ Obiettivo salvato!');
 }
 
-// ─── RENDER ───────────────────────────────────────────────
 function render() {
   const txs = state.transactions;
   const totalIn = txs.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
   const totalOut = txs.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
   const balance = totalIn - totalOut;
-
   document.getElementById('balanceDisplay').textContent = `€ ${fmt(balance)}`;
   document.getElementById('incomeDisplay').textContent = `€ ${fmt(totalIn)}`;
   document.getElementById('expenseDisplay').textContent = `€ ${fmt(totalOut)}`;
-
   const g = state.goal;
   const pct = g.target > 0 ? Math.min(100, Math.round((g.current/g.target)*100)) : 0;
   const remaining = Math.max(0, g.target - g.current);
   const monthly = g.months > 0 ? (remaining/g.months).toFixed(2) : 0;
-
   document.getElementById('depositName').textContent = g.name;
   document.getElementById('depositCurrent').textContent = `€ ${fmt(g.current)}`;
   document.getElementById('depositGoalLabel').textContent = `su € ${fmt(g.target)}`;
@@ -519,30 +586,99 @@ function render() {
   document.getElementById('depositGoal2').textContent = `Obiettivo: € ${fmt(g.target)}`;
   document.getElementById('monthlySaving').textContent = `€ ${monthly}/mese`;
   document.getElementById('depositETA').textContent = g.months > 0 ? `Traguardo in ${g.months} mesi` : '—';
-
   document.getElementById('txCount').textContent = txs.length;
   const list = document.getElementById('txList');
-  if (txs.length === 0) {
-    list.innerHTML = `<div class="empty"><div class="empty-icon">🧾</div>Nessun movimento ancora.<br>Inizia aggiungendo entrate o uscite!</div>`;
-  } else {
-    list.innerHTML = txs.slice(0,15).map(t => {
-      const icon = CAT_ICONS[t.cat] || '📦';
-      const sign = t.type==='income' ? '+' : '-';
-      const dateStr = t.date ? new Date(t.date).toLocaleDateString('it-IT',{day:'numeric',month:'short'}) : '';
-      return `<div class="tx-item">
-        <div class="tx-icon ${t.type}">${icon}</div>
-        <div class="tx-info"><div class="tx-desc">${t.desc}</div><div class="tx-cat">${t.cat}</div></div>
-        <div class="tx-right">
-          <div class="tx-amount ${t.type}">${sign}€ ${fmt(t.amount)}</div>
-          <div class="tx-date">${dateStr}</div>
-        </div>
-        <button class="tx-del" onclick="deleteTransaction(${t.id})">✕</button>
-      </div>`;
-    }).join('');
-  }
+  list.innerHTML = txs.length === 0
+    ? `<div class="empty"><div class="empty-icon">🧾</div>Nessun movimento ancora.<br>Inizia aggiungendo entrate o uscite!</div>`
+    : txs.slice(0,15).map(t => txHTML(t)).join('');
+  document.getElementById('goalName').value = g.name;
+  document.getElementById('goalTarget').value = g.target || '';
+  document.getElementById('goalMonths').value = g.months || '';
+  document.getElementById('goalCurrent').value = g.current || '';
+}
+
+function txHTML(t) {
+  const icon = CAT_ICONS[t.cat] || '📦';
+  const sign = t.type==='income' ? '+' : '-';
+  const dateStr = t.date ? new Date(t.date).toLocaleDateString('it-IT',{day:'numeric',month:'short'}) : '';
+  return `<div class="tx-item">
+    <div class="tx-icon ${t.type}">${icon}</div>
+    <div class="tx-info"><div class="tx-desc">${t.desc}</div><div class="tx-cat">${t.cat}</div></div>
+    <div class="tx-right"><div class="tx-amount ${t.type}">${sign}€ ${fmt(t.amount)}</div><div class="tx-date">${dateStr}</div></div>
+    <button class="tx-del" onclick="deleteTransaction(${t.id})">✕</button>
+  </div>`;
 }
 
 function fmt(n) { return Number(n).toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+// ─── CALENDARIO ───────────────────────────────────────────
+function renderCalendar() {
+  const year = calDate.getFullYear();
+  const month = calDate.getMonth();
+  const monthName = calDate.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' });
+  document.getElementById('calMonth').textContent = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const today = new Date();
+
+  const txsByDay = {};
+  state.transactions.forEach(t => {
+    if (!t.date) return;
+    const d = new Date(t.date);
+    if (d.getFullYear() === year && d.getMonth() === month) {
+      const day = d.getDate();
+      if (!txsByDay[day]) txsByDay[day] = { income: 0, expense: 0, txs: [] };
+      if (t.type === 'income') txsByDay[day].income += t.amount;
+      else txsByDay[day].expense += t.amount;
+      txsByDay[day].txs.push(t);
+    }
+  });
+
+  const days = ['D','L','M','M','G','V','S'];
+  let html = days.map(d => `<div class="cal-day-label">${d}</div>`).join('');
+
+  const startOffset = firstDay === 0 ? 6 : firstDay - 1;
+  for (let i = 0; i < startOffset; i++) html += '<div class="cal-day empty"></div>';
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const isToday = d === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+    const isSelected = selectedCalDay === d;
+    const hasTx = txsByDay[d];
+    let cls = 'cal-day';
+    if (isToday) cls += ' today';
+    if (isSelected) cls += ' selected';
+    if (hasTx) {
+      if (hasTx.income > 0 && hasTx.expense > 0) cls += ' has-both';
+      else if (hasTx.income > 0) cls += ' has-tx';
+      else cls += ' has-expense';
+    }
+    html += `<div class="${cls}" onclick="selectCalDay(${d})">${d}</div>`;
+  }
+
+  document.getElementById('calGrid').innerHTML = html;
+
+  if (selectedCalDay && txsByDay[selectedCalDay]) {
+    const dayData = txsByDay[selectedCalDay];
+    const dateStr = new Date(year, month, selectedCalDay).toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+    document.getElementById('calDetail').style.display = 'block';
+    document.getElementById('calDetailTitle').textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+    document.getElementById('calDetailSummary').innerHTML = `
+      <div class="cal-sum-item"><div class="cal-sum-val income-val">+€ ${fmt(dayData.income)}</div><div class="cal-sum-label">Entrate</div></div>
+      <div class="cal-sum-item"><div class="cal-sum-val expense-val">-€ ${fmt(dayData.expense)}</div><div class="cal-sum-label">Uscite</div></div>`;
+    document.getElementById('calDetailList').innerHTML = dayData.txs.map(t => txHTML(t)).join('');
+  } else {
+    document.getElementById('calDetail').style.display = 'none';
+  }
+}
+
+function selectCalDay(day) {
+  selectedCalDay = selectedCalDay === day ? null : day;
+  renderCalendar();
+}
+
+function calPrev() { calDate.setMonth(calDate.getMonth() - 1); selectedCalDay = null; renderCalendar(); }
+function calNext() { calDate.setMonth(calDate.getMonth() + 1); selectedCalDay = null; renderCalendar(); }
 
 // ─── STATS ────────────────────────────────────────────────
 function renderStats() {
@@ -551,134 +687,116 @@ function renderStats() {
   const totalOut = txs.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
   const balance = totalIn - totalOut;
   const savingRate = totalIn > 0 ? Math.round((balance/totalIn)*100) : 0;
-
   document.getElementById('statsGrid').innerHTML = `
     <div class="stat-card"><div class="stat-icon">📈</div><div class="stat-val income-val">€ ${fmt(totalIn)}</div><div class="stat-label">Totale entrate</div></div>
     <div class="stat-card"><div class="stat-icon">📉</div><div class="stat-val expense-val">€ ${fmt(totalOut)}</div><div class="stat-label">Totale uscite</div></div>
     <div class="stat-card"><div class="stat-icon">💰</div><div class="stat-val" style="color:var(--gold-light)">€ ${fmt(balance)}</div><div class="stat-label">Saldo netto</div></div>
     <div class="stat-card"><div class="stat-icon">🎯</div><div class="stat-val" style="color:${savingRate>=20?'var(--green)':'var(--red)'}">${savingRate}%</div><div class="stat-label">Tasso risparmio</div></div>`;
-
   const months = [];
   for (let i=3;i>=0;i--) {
     const d=new Date(); d.setMonth(d.getMonth()-i);
     const y=d.getFullYear(), m=d.getMonth();
-    const mt = txs.filter(t=>{const td=new Date(t.date);return td.getFullYear()===y&&td.getMonth()===m;});
+    const mt=txs.filter(t=>{const td=new Date(t.date);return td.getFullYear()===y&&td.getMonth()===m;});
     months.push({label:d.toLocaleDateString('it-IT',{month:'short'}), inc:mt.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0), exp:mt.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0)});
   }
-  const maxVal = Math.max(...months.map(m=>Math.max(m.inc,m.exp)),1);
-  document.getElementById('chartBars').innerHTML = months.map(m=>`<div class="bar-group"><div class="bar income" style="height:${(m.inc/maxVal)*75}px"></div><div class="bar expense" style="height:${(m.exp/maxVal)*75}px"></div></div>`).join('');
-  document.getElementById('chartLabels').innerHTML = months.map(m=>`<div class="bar-label">${m.label}</div>`).join('');
-
-  const cats = {};
+  const maxVal=Math.max(...months.map(m=>Math.max(m.inc,m.exp)),1);
+  document.getElementById('chartBars').innerHTML=months.map(m=>`<div class="bar-group"><div class="bar income" style="height:${(m.inc/maxVal)*75}px"></div><div class="bar expense" style="height:${(m.exp/maxVal)*75}px"></div></div>`).join('');
+  document.getElementById('chartLabels').innerHTML=months.map(m=>`<div class="bar-label">${m.label}</div>`).join('');
+  const cats={};
   txs.filter(t=>t.type==='expense').forEach(t=>{cats[t.cat]=(cats[t.cat]||0)+t.amount;});
-  const sorted = Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,5);
-  const totalCat = sorted.reduce((s,c)=>s+c[1],0)||1;
-  document.getElementById('catBreakdown').innerHTML = sorted.length ? sorted.map(([cat,amt])=>`
+  const sorted=Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const totalCat=sorted.reduce((s,c)=>s+c[1],0)||1;
+  document.getElementById('catBreakdown').innerHTML=sorted.length?sorted.map(([cat,amt])=>`
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;">
       <div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;"><span>${CAT_ICONS[cat]||'📦'} ${cat}</span><span style="color:var(--red);font-weight:600;">€ ${fmt(amt)}</span></div>
       <div style="background:rgba(255,255,255,0.06);border-radius:100px;height:5px;"><div style="height:100%;border-radius:100px;background:var(--red);width:${(amt/totalCat*100)}%"></div></div>
-    </div>`).join('') : '<div class="empty"><div class="empty-icon">📊</div>Nessuna uscita registrata</div>';
+    </div>`).join(''):'<div class="empty"><div class="empty-icon">📊</div>Nessuna uscita registrata</div>';
 }
 
-// ─── ACCOUNT ──────────────────────────────────────────────
 function renderAccount() {
-  const txs = state.transactions;
-  const totalIn = txs.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-  const totalOut = txs.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
-  document.getElementById('accInfo').textContent = `Dati salvati sul tuo dispositivo`;
-  document.getElementById('accTxCount').textContent = txs.length;
-  document.getElementById('accBalance').textContent = `€ ${fmt(totalIn - totalOut)}`;
-  document.getElementById('accGoal').textContent = state.goal.name || '—';
+  const txs=state.transactions;
+  const totalIn=txs.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
+  const totalOut=txs.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+  document.getElementById('accTxCount').textContent=txs.length;
+  document.getElementById('accBalance').textContent=`€ ${fmt(totalIn-totalOut)}`;
+  document.getElementById('accGoal').textContent=state.goal.name||'—';
 }
 
-// ─── EXPORT / IMPORT ──────────────────────────────────────
 function exportData() {
-  const data = JSON.stringify(state, null, 2);
-  const blob = new Blob([data], {type: 'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  const date = new Date().toISOString().split('T')[0];
-  a.href = url;
-  a.download = `deposito-backup-${date}.json`;
-  a.click();
+  const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download=`deposito-backup-${new Date().toISOString().split('T')[0]}.json`; a.click();
   URL.revokeObjectURL(url);
   showToast('📤 Backup esportato!');
 }
 
 function importData(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
+  const file=event.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=(e)=>{
     try {
-      const imported = JSON.parse(e.target.result);
-      if (!imported.transactions) throw new Error('File non valido');
-      if (!confirm(`Importare ${imported.transactions.length} movimenti? I dati attuali verranno sostituiti.`)) return;
-      state = imported;
-      saveState(); render();
-      showToast('📥 Dati importati con successo!');
-      showPage('home');
+      const imported=JSON.parse(e.target.result);
+      if(!imported.transactions) throw new Error();
+      if(!confirm(`Importare ${imported.transactions.length} movimenti? I dati attuali verranno sostituiti.`)) return;
+      state=imported; saveState(); render();
+      showToast('📥 Dati importati!'); showPage('home');
     } catch { showToast('❌ File non valido'); }
   };
-  reader.readAsText(file);
-  event.target.value = '';
+  reader.readAsText(file); event.target.value='';
 }
 
 function resetAll() {
-  if (!confirm('Sei sicuro? Tutti i dati verranno cancellati definitivamente.')) return;
-  state = { transactions: [], goal: { name: 'Il mio obiettivo', target: 0, months: 12, current: 0 } };
-  saveState(); render();
-  showToast('🗑️ Dati cancellati');
-  showPage('home');
+  if(!confirm('Cancellare tutti i dati definitivamente?')) return;
+  state={transactions:[],goal:{name:'Il mio obiettivo',target:0,months:12,current:0}};
+  saveState(); render(); showToast('🗑️ Dati cancellati'); showPage('home');
 }
 
-// ─── AI MARCO ─────────────────────────────────────────────
+// ─── MARCO AI ─────────────────────────────────────────────
 async function sendAI() {
-  const input = document.getElementById('aiInput');
-  const msg = input.value.trim();
-  if (!msg) return;
-  input.value = '';
-  appendMsg(msg, 'user');
-  const thinking = appendMsg('Sto analizzando...', 'advisor thinking');
-  const txs = state.transactions;
-  const totalIn = txs.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-  const totalOut = txs.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
-  const g = state.goal;
-  const context = `Sei Marco, un consulente finanziario personale severo ma empatico che parla italiano. L'utente vuole costruire un deposito personale. Sei diretto, pratico e dai consigli concreti.
+  const input=document.getElementById('aiInput');
+  const msg=input.value.trim(); if(!msg) return;
+  input.value='';
+  appendMsg(msg,'user');
+  const thinking=appendMsg('Sto analizzando...','advisor thinking');
+  const txs=state.transactions;
+  const totalIn=txs.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
+  const totalOut=txs.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+  const g=state.goal;
+  const context=`Sei Marco, un consulente finanziario personale severo ma empatico che parla italiano. L'utente vuole costruire un deposito personale. Sei diretto, pratico e dai consigli concreti.
 DATI FINANZIARI:
 - Entrate totali: €${totalIn.toFixed(2)}
 - Uscite totali: €${totalOut.toFixed(2)}
 - Saldo: €${(totalIn-totalOut).toFixed(2)}
 - Obiettivo: ${g.name}, target €${g.target}, depositato €${g.current}, mesi rimanenti: ${g.months}
 - Ultimi movimenti: ${txs.slice(0,5).map(t=>`${t.type==='income'?'+':'-'}€${t.amount}(${t.cat})`).join(', ')||'nessuno'}
-Rispondi concisamente (max 3 frasi), in modo concreto e motivante. Usa qualche emoji.`;
+Rispondi concisamente (max 3 frasi), concreto e motivante. Usa qualche emoji.`;
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({model:'claude-sonnet-4-20250514', max_tokens:400, system:context, messages:[{role:'user',content:msg}]})
+    const res=await fetch(WORKER_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:context,messages:[{role:'user',content:msg}]})
     });
-    const data = await res.json();
-    thinking.textContent = data.content?.[0]?.text || 'Scusa, riprova!';
+    const data=await res.json();
+    thinking.textContent=data.content?.[0]?.text||'Scusa, riprova!';
     thinking.classList.remove('thinking');
-  } catch {
-    thinking.textContent = '📵 Serve la connessione internet per parlare con me!';
+  } catch(e) {
+    thinking.textContent='❌ Errore di connessione. Riprova tra un momento!';
     thinking.classList.remove('thinking');
   }
-  document.getElementById('aiMessages').scrollTop = 9999;
+  document.getElementById('aiMessages').scrollTop=9999;
 }
 
-function appendMsg(text, cls) {
-  const msgs = document.getElementById('aiMessages');
-  const div = document.createElement('div');
-  div.className = 'ai-msg ' + cls;
-  div.textContent = text;
-  msgs.appendChild(div);
-  msgs.scrollTop = 9999;
-  return div;
+function appendMsg(text,cls) {
+  const msgs=document.getElementById('aiMessages');
+  const div=document.createElement('div');
+  div.className='ai-msg '+cls; div.textContent=text;
+  msgs.appendChild(div); msgs.scrollTop=9999; return div;
 }
 
-function quickQuestion(q) { document.getElementById('aiInput').value = q; sendAI(); }
+function quickQuestion(q) { document.getElementById('aiInput').value=q; sendAI(); }
 
+document.getElementById('txDate').value=new Date().toISOString().split('T')[0];
 init();
 </script>
 </body>
